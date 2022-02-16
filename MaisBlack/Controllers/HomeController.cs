@@ -18,7 +18,6 @@ namespace MaisBlack.Controllers
 
         public IActionResult Index()
         {
-            var cliente = _clienteRepository.GetAll();
             return View();
         }
 
