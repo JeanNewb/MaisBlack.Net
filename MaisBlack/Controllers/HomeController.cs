@@ -18,7 +18,17 @@ namespace MaisBlack.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult NossosServicos()
+        {
+            return View();
+        }
+
+        public IActionResult QuemSomos()
+        {
+            return View();
+        }
+
+        public IActionResult Contato()
         {
             return View();
         }
