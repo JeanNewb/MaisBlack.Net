@@ -88,15 +88,15 @@
 
     <!--Formulário-->
     <div id='wrapper'>
-        <form action='ControleCliente' class='form'>
+        <form class='form' method="post" asp-action='Contato' asp-controller="Home">
             <p class='field required half'>
-                <input class='text-input' id='name' name='name' required type='text' placeholder="Digite seu nome">
+                <input class='text-input' id='name' name='Nome' required type='text' placeholder="Digite seu nome">
             </p>
             <p class='field required half'>
-                <input class='text-input' id='email' name='email' required type='email' placeholder="E-mail">
+                <input class='text-input' id='email' name='Email' required type='email' placeholder="E-mail">
             </p>
             <p class='field'>
-                <textarea class='textarea' cols='50' id='message' name='message' required rows='4'
+                <textarea class='textarea' cols='50' id='message' name='Mensagem' required rows='4'
                           placeholder="Opa, digite aqui sua mensagem..."></textarea>
             </p>
             <p class='field'>

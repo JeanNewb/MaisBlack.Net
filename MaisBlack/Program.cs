@@ -1,7 +1,22 @@
+using MaisBlack.Data;
+using MaisBlack.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
+using System.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//builder.Services.AddDbContext<MyContext>(
+//    options => options.UseMySql("conn", ServerVersion.Parse("versao"))
+//);
+
+builder.Services.AddDbContext<MyContext>(
+    options => options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"))
+);
+
+builder.Services.AddScoped<ClienteRepository>();
 
 var app = builder.Build();
 

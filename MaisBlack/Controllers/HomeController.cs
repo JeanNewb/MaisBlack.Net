@@ -1,4 +1,5 @@
-﻿using MaisBlack.Models;
+﻿using MaisBlack.Data.Repositories;
+using MaisBlack.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,14 +8,17 @@ namespace MaisBlack.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ClienteRepository _clienteRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ClienteRepository clienteRepository)
         {
             _logger = logger;
+            _clienteRepository = clienteRepository;
         }
 
         public IActionResult Index()
         {
+            var cliente = _clienteRepository.GetAll();
             return View();
         }
 
@@ -28,8 +32,16 @@ namespace MaisBlack.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Contato()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Contato(Cliente cliente)
+        {
+            _clienteRepository.Add(cliente);
             return View();
         }
 
